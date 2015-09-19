@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<metainfo>
+  <schemaVersion>2.0</schemaVersion>
+  <application>
+    <name>HDFSFTP</name>
+    <comment>Apache FtpServer with HDFS support</comment>
+    <version>1.1.0</version>
+    <components>
+      <component>
+        <name>HDFSFTP</name>
+        <category>MASTER</category>
+        <componentExports>
+          <componentExport>
+            <name>jmxexport</name>
+            <value>${THIS_HOST}:${site.global.jmxport}</value>
+          </componentExport>
+          <componentExport>
+            <name>ftpexport</name>
+            <value>${THIS_HOST}:${site.hdfsftp.port}</value>
+          </componentExport>
+          <componentExport>
+            <name>sslftpexport</name>
+            <value>${THIS_HOST}:${site.hdfsftp.ssl-port}</value>
+          </componentExport>
+        </componentExports>
+        <commandScript>
+          <script>scripts/hdfsftp.py</script>
+          <scriptType>PYTHON</scriptType>
+          <timeout>600</timeout>
+        </commandScript>
+      </component>
+    </components>
+    <osSpecifics>
+      <osSpecific>
+        <osType>any</osType>
+        <packages>
+          <package>
+            <type>tarball</type>
+            <name>files/hdfsftp-1.1.0.tar</name>
+          </package>
+        </packages>
+      </osSpecific>
+    </osSpecifics>
+
+    <configFiles>
+      <configFile>
+        <type>properties</type>
+        <fileName>hdfs-over-ftp.properties</fileName>
+        <dictionaryName>hdfsftp</dictionaryName>
+      </configFile>
+      <configFile>
+        <type>properties</type>
+        <fileName>users.properties</fileName>
+        <dictionaryName>usersprops</dictionaryName>
+      </configFile>
+    </configFiles>
+
+  </application>
+</metainfo>

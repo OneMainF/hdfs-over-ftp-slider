@@ -1,0 +1,46 @@
+{
+  "schema": "http://example.org/specification/v2.0.0",
+  "metadata": {
+  },
+  "global": {
+    "application.def": ".slider/package/HDFSFTP/hdfsftp-1.1.0.zip",
+    "java_home": "/usr/jdk64/jdk1.7.0_67",
+
+    "site.global.hdfs_bin": "/usr/bin/hdfs",
+    "site.global.jmxport" : "${HDFSFTP.ALLOCATED_PORT}{PER_CONTAINER}",
+    "site.global.java_opts": "-Xms64m -Xmx256m -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false",
+    "site.global.host": "${HDFSFTP_HOST}",
+    "site.global.app_user": "${USER}",
+    "site.global.user_group": "${USER}",
+    "site.global.keystore_in_hdfs": "/user/${USER}/keystores/${CLUSTER_NAME}.jks",
+
+    "site.hdfsftp.jmxdomain": "${USER}-${CLUSTER_NAME}",
+    "site.hdfsftp.hdfs-uri": "hdfs://hqchmastnamet01.corp.fin:8020",
+    "site.hdfsftp.hdfsuser": "${USER}",
+    "site.hdfsftp.hdfsgroup": "${USER}",
+    "site.hdfsftp.port": "${HDFSFTP.ALLOCATED_PORT}{PER_CONTAINER}",
+    "site.hdfsftp.mbeanname": "ftp",
+    "site.hdfsftp.data-ports": "2022-2029",
+    "site.hdfsftp.ssl-port": "${HDFSFTP.ALLOCATED_PORT}{PER_CONTAINER}",
+    "site.hdfsftp.ssl-mbeanname": "sslftp",
+    "site.hdfsftp.ssl-keystore-file": "sslftpkeystore.jks",
+    "site.hdfsftp.ssl-keystore-password": "333333",
+    "site.hdfsftp.ssl-data-ports": "2322-2329",
+
+    "site.usersprops.ftpserver.user.testu.userpassword": "21232F297A57A5A743894A0E4A801FC3",
+    "site.usersprops.ftpserver.user.testu.homedirectory": "/user/testu",
+    "site.usersprops.ftpserver.user.testu.enableflag": "true",
+    "site.usersprops.ftpserver.user.testu.writepermission": "true",
+    "site.usersprops.ftpserver.user.testu.maxloginnumber": "0",
+    "site.usersprops.ftpserver.user.testu.maxloginperip": "0",
+    "site.usersprops.ftpserver.user.testu.idletime": "0",
+    "site.usersprops.ftpserver.user.testu.uploadrate": "0",
+    "site.usersprops.ftpserver.user.testu.downloadrate": "0",
+    "site.usersprops.ftpserver.user.testu.groups": "hdfs"
+  },
+  "components": {
+    "slider-appmaster": {
+      "jvm.heapsize": "256M"
+    }
+  }
+}
